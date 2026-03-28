@@ -1,0 +1,16 @@
+{
+  "name": "yarn-pnp-monorepo-example",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "yarn@4.6.0",
+  "scripts": {
+    "dev": "yarn workspaces foreach --all --parallel --interlaced run dev",
+    "build": "yarn workspaces foreach --all --topological-dev run build",
+    "lint": "yarn workspaces foreach --all run lint",
+    "typecheck": "yarn workspaces foreach --all run typecheck",
+    "clean": "yarn workspaces foreach --all run clean"
+  }
+}

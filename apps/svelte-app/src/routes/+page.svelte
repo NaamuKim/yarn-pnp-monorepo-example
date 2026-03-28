@@ -1,0 +1,33 @@
+<script lang="ts">
+  import type { PageData } from './$types';
+  import { formatCurrency } from '@mono/utils';
+  import { colors } from '@mono/ui';
+
+  export let data: PageData;
+</script>
+
+<svelte:head>
+  <title>SvelteKit App - Mono</title>
+</svelte:head>
+
+<div style="font-family: sans-serif; max-width: 800px; margin: 0 auto; padding: 2rem">
+  <header style="border-bottom: 3px solid {colors.primary}; padding-bottom: 1rem; margin-bottom: 2rem">
+    <h1 style="color: {colors.primary}">SvelteKit App</h1>
+    <p style="color: #666">Yarn PnP Monorepo — SvelteKit (SSR)</p>
+  </header>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem">
+    {#each data.products as product (product.id)}
+      <div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); background: white">
+        <h3 style="margin: 0 0 0.5rem; color: {colors.primary}">{product.name}</h3>
+        <p style="margin: 0 0 0.5rem; font-size: 0.875rem; color: #6b7280">{product.description}</p>
+        <strong style="color: {colors.success}">{formatCurrency(product.price)}</strong>
+      </div>
+    {/each}
+  </div>
+</div>
+
+<style>
+  :global(*, *::before, *::after) { box-sizing: border-box; }
+  :global(body) { margin: 0; background: #f9fafb; }
+</style>
