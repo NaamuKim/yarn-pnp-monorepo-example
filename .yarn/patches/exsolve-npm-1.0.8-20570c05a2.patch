@@ -1,0 +1,61 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 769c2713a59268fff016748575a46aa800c55548..25ef5f8e7b7b6148f9965ab0cf11949d423cc156 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -5,6 +5,12 @@ import assert from "node:assert";
+ import process$1 from "node:process";
+ import v8 from "node:v8";
+ import { format, inspect } from "node:util";
++import { createRequire } from "node:module";
++
++// PnP shim: load pnpapi from project root
++const _require = createRequire(new URL("file://" + process.cwd() + "/"));
++let _pnpapi;
++try { _pnpapi = _require("pnpapi"); } catch {}
+ 
+ //#region src/internal/builtins.ts
+ const nodeBuiltins = [
+@@ -905,6 +911,35 @@ function resolveModuleURL(input, options) {
+ 	const suffixes = options?.suffixes || [""];
+ 	const extensions = options?.extensions ? ["", ...options.extensions] : [""];
+ 	let resolved;
++	// Try Yarn PnP resolution first (exsolve uses filesystem traversal, not compatible with PnP)
++	if (!absolutePath && specifier && _pnpapi) {
++		// Only apply package.json fallback for bare package names (not deep subpaths)
++		const isBarePkgName = specifier.startsWith('@')
++			? specifier.split('/').length === 2
++			: !specifier.includes('/');
++		const fromList = bases.length > 0 ? bases.map(b => fileURLToPath(b).replace(/\/+$/, "") + "/") : [void 0];
++		for (const from of fromList) {
++			let pnpResolved;
++			try {
++				pnpResolved = _pnpapi.resolveRequest(specifier, from, { considerBuiltins: false });
++			} catch (e) {
++				// Yarn virtual packages may lack "exports" main - fallback via package.json (only for bare pkg names)
++				if (isBarePkgName && e.message && e.message.includes('No "exports" main defined')) {
++					try {
++						const pkgJsonPath = _pnpapi.resolveRequest(specifier + "/package.json", from, { considerBuiltins: false });
++						if (pkgJsonPath) {
++							const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
++							const main = (pkgJson.exports?.["."]?.import ?? pkgJson.exports?.["."]?.default ?? pkgJson.main) || "index.js";
++							pnpResolved = path.resolve(path.dirname(pkgJsonPath), main);
++						}
++					} catch {}
++				}
++				// Otherwise try next base
++			}
++			if (pnpResolved) { resolved = pathToFileURL(pnpResolved); break; }
++		}
++	}
++	if (!resolved) {
+ 	for (const base of bases) {
+ 		for (const suffix of suffixes) {
+ 			let name = _join(target, suffix);
+@@ -917,6 +952,7 @@ function resolveModuleURL(input, options) {
+ 		}
+ 		if (resolved) break;
+ 	}
++	}
+ 	if (!resolved) {
+ 		const error = /* @__PURE__ */ new Error(`Cannot resolve module "${input}" (from: ${bases.map((u) => _fmtPath(u)).join(", ")})`);
+ 		error.code = "ERR_MODULE_NOT_FOUND";

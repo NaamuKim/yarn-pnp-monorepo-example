@@ -1,4 +1,5 @@
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: { enabled: false },
+  telemetry: false,
   typescript: { strict: true },
 });

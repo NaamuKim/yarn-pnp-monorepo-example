@@ -1,0 +1,66 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 38561d3b4a53fdb541e8d3700378503631e30d65..8016b55a5aaec2ab02e66135efe172f56805b953 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -11,6 +11,10 @@ import path, { dirname } from 'node:path';
+ import v8 from 'node:v8';
+ import { format, inspect } from 'node:util';
+ 
++// PnP shim: try to load pnpapi for Yarn PnP compatibility
++let _pnpapi;
++try { _pnpapi = createRequire(new URL("file://" + process.cwd() + "/"))("pnpapi"); } catch {}
++
+ const BUILTIN_MODULES = new Set(builtinModules);
+ function normalizeSlash(path) {
+   return path.replace(/\\/g, "/");
+@@ -573,7 +577,7 @@ function read(jsonPath, {base, specifier}) {
+   } catch (error) {
+     const exception = /** @type {ErrnoException} */ (error);
+ 
+-    if (exception.code !== 'ENOENT') {
++    if (exception.code !== 'ENOENT' && exception.code !== 'ENOTDIR') {
+       throw exception
+     }
+   }
+@@ -2104,6 +2108,33 @@ function _resolve(id, options = {}) {
+     }
+   }
+   let resolved;
++  // Try Yarn PnP resolution first (mlly uses filesystem traversal, not compatible with PnP)
++  if (_pnpapi && !isAbsolute(id)) {
++    const isBarePkgName = id.startsWith('@') ? id.split('/').length === 2 : !id.includes('/');
++    const fromList = _urls.map(u => {
++      try { return fileURLToPath$1(u).replace(/\/+$/, "") + "/"; } catch { return null; }
++    }).filter(Boolean);
++    if (fromList.length === 0) fromList.push(process.cwd() + "/");
++    for (const from of fromList) {
++      let pnpResolved;
++      try {
++        pnpResolved = _pnpapi.resolveRequest(id, from, { considerBuiltins: false });
++      } catch (e) {
++        if (isBarePkgName && e.message && e.message.includes('No "exports" main defined')) {
++          try {
++            const pkgJsonPath = _pnpapi.resolveRequest(id + "/package.json", from, { considerBuiltins: false });
++            if (pkgJsonPath) {
++              const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
++              const main = (pkgJson.exports?.["."]?.import ?? pkgJson.exports?.["."]?.default ?? pkgJson.main) || "index.js";
++              pnpResolved = path.resolve(dirname(pkgJsonPath), main);
++            }
++          } catch {}
++        }
++      }
++      if (pnpResolved) { resolved = pnpResolved; break; }
++    }
++  }
++  if (!resolved) {
+   for (const url of urls) {
+     resolved = _tryModuleResolve(id, url, conditionsSet);
+     if (resolved) {
+@@ -2128,6 +2159,7 @@ function _resolve(id, options = {}) {
+       break;
+     }
+   }
++  }
+   if (!resolved) {
+     const error = new Error(
+       `Cannot find module ${id} imported from ${urls.join(", ")}`

@@ -8,7 +8,16 @@
     "experimentalDecorators": true,
     "useDefineForClassFields": false,
     "emitDecoratorMetadata": true,
-    "paths": {}
+    "paths": {
+      "@mono/api-client": ["../../packages/api-client/src/index.ts"],
+      "@mono/ui": ["../../packages/ui/src/index.ts"],
+      "@mono/utils": ["../../packages/utils/src/index.ts"]
+    }
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "../../packages/api-client/src",
+    "../../packages/ui/src",
+    "../../packages/utils/src"
+  ]
 }

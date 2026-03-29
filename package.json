@@ -6,6 +6,19 @@
     "packages/*"
   ],
   "packageManager": "yarn@4.13.0",
+  "resolutions": {
+    "exsolve@npm:^1.0.8": "patch:exsolve@npm%3A1.0.8#~/.yarn/patches/exsolve-npm-1.0.8-20570c05a2.patch",
+    "exsolve@npm:^1.0.7": "patch:exsolve@npm%3A1.0.8#~/.yarn/patches/exsolve-npm-1.0.8-20570c05a2.patch",
+    "@nuxt/kit@npm:3.21.2": "patch:@nuxt/kit@npm%3A3.21.2#~/.yarn/patches/@nuxt-kit-npm-3.21.2-pnp-fix.patch",
+    "mlly@npm:^1.8.1": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch",
+    "mlly@npm:^1.7.4": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch",
+    "mlly@npm:^1.7.2": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch",
+    "mlly@npm:^1.8.0": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch",
+    "mlly@npm:^1.4.2": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch",
+    "mlly@npm:^1.3.0": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch",
+    "mlly@npm:^1.7.1": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch",
+    "mlly@npm:^1.8.2": "patch:mlly@npm%3A1.8.2#~/.yarn/patches/mlly-npm-1.8.2-b1760a820e.patch"
+  },
   "scripts": {
     "dev": "yarn workspaces foreach --all --parallel --interlaced run dev",
     "build": "yarn workspaces foreach --all --topological-dev run build",

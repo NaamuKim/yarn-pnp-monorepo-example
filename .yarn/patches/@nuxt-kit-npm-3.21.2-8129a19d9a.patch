@@ -1,0 +1,13 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index e86e7cc470e728dc0a80bdaa74f367a00efb04e1..52386bc9ad9bda0a52678d5598c712b61e31a763 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -2425,7 +2425,7 @@ async function _resolvePathType(path, opts = {}, skipFs = false) {
+   }
+   const fd = await promises.open(path, "r").catch(() => null);
+   try {
+-    const stats = await fd?.stat();
++    const stats = fd ? await fd.stat().catch(() => null) : null;
+     if (stats) {
+       return {
+         path,
