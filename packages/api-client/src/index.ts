@@ -21,7 +21,7 @@ export interface ApiResponse<T> {
   data: T;
   total: number;
   page: number;
-  status: HttpStatus;
+  status?: HttpStatus;  // const enum cross-file import (hole demo – see ts6-holes-app)
 }
 
 // Mock data
