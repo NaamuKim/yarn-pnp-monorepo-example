@@ -1,4 +1,6 @@
-import { sleep } from '@mono/utils';
+// Hole 4: 타입/값 혼합 import – verbatimModuleSyntax 활성화 시
+// "import type이어야 하는 것을 일반 import로" 쓰는 패턴을 코드모드가 잡지 않음
+import { sleep, HttpStatus } from '@mono/utils';
 
 export interface Product {
   id: number;
@@ -19,6 +21,7 @@ export interface ApiResponse<T> {
   data: T;
   total: number;
   page: number;
+  status: HttpStatus;
 }
 
 // Mock data

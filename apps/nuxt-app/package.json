@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@nuxt/kit": "^3.13.0",
-    "typescript": "^5.3.0",
+    "typescript": "^6.0.2",
     "vite": "7.3.1",
     "vue": "^3.5.0"
   }

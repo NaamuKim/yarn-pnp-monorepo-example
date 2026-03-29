@@ -15,6 +15,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@andrewbranch/ts5to6@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@andrewbranch/ts5to6@npm:1.1.1"
+  dependencies:
+    chalk: "npm:^5.6.0"
+    glob: "npm:^11.0.3"
+  bin:
+    ts5to6: dist/cli.js
+  checksum: 10c0/4b195c7faef48e6ee88a2fce3fe70f19a8f0a017376d888bf82fed4147bffe7245301c24b42906749bd791b64923af526a3720a5578a121364f586f1cd2c9cd4
+  languageName: node
+  linkType: hard
+
 "@angular-devkit/architect@npm:0.1802.21":
   version: 0.1802.21
   resolution: "@angular-devkit/architect@npm:0.1802.21"
@@ -3437,6 +3449,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@isaacs/cliui@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "@isaacs/cliui@npm:9.0.0"
+  checksum: 10c0/971063b7296419f85053dacd0a0285dcadaa3dfc139228b23e016c1a9848121ad4aa5e7fcca7522062014e1eb6239a7424188b9f2cba893a79c90aae5710319c
+  languageName: node
+  linkType: hard
+
 "@isaacs/fs-minipass@npm:^4.0.0":
   version: 4.0.1
   resolution: "@isaacs/fs-minipass@npm:4.0.1"
@@ -3924,7 +3943,7 @@ __metadata:
     "@mono/ui": "workspace:*"
     "@mono/utils": "workspace:*"
     rxjs: "npm:^7.8.0"
-    typescript: "npm:~5.5.4"
+    typescript: "npm:^6.0.2"
     zone.js: "npm:~0.14.0"
   languageName: unknown
   linkType: soft
@@ -3934,7 +3953,7 @@ __metadata:
   resolution: "@mono/api-client@workspace:packages/api-client"
   dependencies:
     "@mono/utils": "workspace:*"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
   languageName: unknown
   linkType: soft
 
@@ -3951,7 +3970,7 @@ __metadata:
     astro: "npm:^4.16.0"
     react: "npm:^18.3.0"
     react-dom: "npm:^18.3.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
   languageName: unknown
   linkType: soft
 
@@ -3968,7 +3987,7 @@ __metadata:
     next: "npm:^14.2.0"
     react: "npm:^18.3.0"
     react-dom: "npm:^18.3.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
   languageName: unknown
   linkType: soft
 
@@ -3981,7 +4000,7 @@ __metadata:
     "@mono/utils": "workspace:*"
     "@nuxt/kit": "npm:^3.13.0"
     nuxt: "npm:^3.13.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
     vite: "npm:7.3.1"
     vue: "npm:^3.5.0"
   languageName: unknown
@@ -3996,7 +4015,7 @@ __metadata:
     "@mono/api-client": "workspace:*"
     "@mono/ui": "workspace:*"
     "@mono/utils": "workspace:*"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
     undici: "npm:^6.19.0"
     vite: "npm:^5.4.0"
   languageName: unknown
@@ -4014,7 +4033,7 @@ __metadata:
     "@vitejs/plugin-react": "npm:^4.3.0"
     react: "npm:^18.3.0"
     react-dom: "npm:^18.3.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
     vite: "npm:^5.4.0"
   languageName: unknown
   linkType: soft
@@ -4035,7 +4054,7 @@ __metadata:
     isbot: "npm:^4.4.0"
     react: "npm:^18.3.0"
     react-dom: "npm:^18.3.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
     vite: "npm:^5.4.0"
   languageName: unknown
   linkType: soft
@@ -4048,7 +4067,7 @@ __metadata:
     "@mono/ui": "workspace:*"
     "@mono/utils": "workspace:*"
     solid-js: "npm:^1.9.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
     vite: "npm:^5.4.0"
     vite-plugin-solid: "npm:^2.11.0"
   languageName: unknown
@@ -4066,7 +4085,7 @@ __metadata:
     "@sveltejs/vite-plugin-svelte": "npm:^4.0.0"
     svelte: "npm:^5.2.0"
     svelte-check: "npm:^4.1.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
     vite: "npm:^5.4.0"
   languageName: unknown
   linkType: soft
@@ -4075,7 +4094,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mono/ui@workspace:packages/ui"
   dependencies:
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
   languageName: unknown
   linkType: soft
 
@@ -4083,7 +4102,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@mono/utils@workspace:packages/utils"
   dependencies:
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
   languageName: unknown
   linkType: soft
 
@@ -4095,7 +4114,7 @@ __metadata:
     "@mono/ui": "workspace:*"
     "@mono/utils": "workspace:*"
     "@vitejs/plugin-vue": "npm:^5.2.0"
-    typescript: "npm:^5.3.0"
+    typescript: "npm:^6.0.2"
     vite: "npm:^5.4.0"
     vue: "npm:^3.5.0"
     vue-tsc: "npm:^2.2.0"
@@ -8652,7 +8671,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^5.3.0":
+"chalk@npm:^5.3.0, chalk@npm:^5.6.0":
   version: 5.6.2
   resolution: "chalk@npm:5.6.2"
   checksum: 10c0/99a4b0f0e7991796b1e7e3f52dceb9137cae2a9dfc8fc0784a550dc4c558e15ab32ed70b14b21b52beb2679b4892b41a0aa44249bcb996f01e125d58477c6976
@@ -11117,7 +11136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"foreground-child@npm:^3.1.0":
+"foreground-child@npm:^3.1.0, foreground-child@npm:^3.3.1":
   version: 3.3.1
   resolution: "foreground-child@npm:3.3.1"
   dependencies:
@@ -11420,6 +11439,22 @@ __metadata:
   bin:
     glob: dist/esm/bin.mjs
   checksum: 10c0/100705eddbde6323e7b35e1d1ac28bcb58322095bd8e63a7d0bef1a2cdafe0d0f7922a981b2b48369a4f8c1b077be5c171804534c3509dfe950dde15fbe6d828
+  languageName: node
+  linkType: hard
+
+"glob@npm:^11.0.3":
+  version: 11.1.0
+  resolution: "glob@npm:11.1.0"
+  dependencies:
+    foreground-child: "npm:^3.3.1"
+    jackspeak: "npm:^4.1.1"
+    minimatch: "npm:^10.1.1"
+    minipass: "npm:^7.1.2"
+    package-json-from-dist: "npm:^1.0.0"
+    path-scurry: "npm:^2.0.0"
+  bin:
+    glob: dist/esm/bin.mjs
+  checksum: 10c0/1ceae07f23e316a6fa74581d9a74be6e8c2e590d2f7205034dd5c0435c53f5f7b712c2be00c3b65bf0a49294a1c6f4b98cd84c7637e29453b5aa13b79f1763a2
   languageName: node
   linkType: hard
 
@@ -12716,6 +12751,15 @@ __metadata:
     "@pkgjs/parseargs":
       optional: true
   checksum: 10c0/6acc10d139eaefdbe04d2f679e6191b3abf073f111edf10b1de5302c97ec93fffeb2fdd8681ed17f16268aa9dd4f8c588ed9d1d3bffbbfa6e8bf897cbb3149b9
+  languageName: node
+  linkType: hard
+
+"jackspeak@npm:^4.1.1":
+  version: 4.2.3
+  resolution: "jackspeak@npm:4.2.3"
+  dependencies:
+    "@isaacs/cliui": "npm:^9.0.0"
+  checksum: 10c0/b5c0c414f1607c2aa0597f4bf2c03b8443897fccd5fd3c2b3e4f77d556b2bc7c3d3413828ba91e0789f6fb40ad90242f7f89fb20aee9e9d705bc1681f7564f67
   languageName: node
   linkType: hard
 
@@ -14825,7 +14869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^10.2.2":
+"minimatch@npm:^10.1.1, minimatch@npm:^10.2.2":
   version: 10.2.4
   resolution: "minimatch@npm:10.2.4"
   dependencies:
@@ -16568,7 +16612,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"path-scurry@npm:^2.0.2":
+"path-scurry@npm:^2.0.0, path-scurry@npm:^2.0.2":
   version: 2.0.2
   resolution: "path-scurry@npm:2.0.2"
   dependencies:
@@ -20058,43 +20102,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.0":
-  version: 5.9.3
-  resolution: "typescript@npm:5.9.3"
+"typescript@npm:^6.0.2":
+  version: 6.0.2
+  resolution: "typescript@npm:6.0.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/6bd7552ce39f97e711db5aa048f6f9995b53f1c52f7d8667c1abdc1700c68a76a308f579cd309ce6b53646deb4e9a1be7c813a93baaf0a28ccd536a30270e1c5
+  checksum: 10c0/4b860b0bf87cc0fee0f66d8ef2640b5a8a8a8c74d1129adb82e389e5f97124383823c47946bef8a73ede371461143a3aa8544399d2133c7b2e4f07e81860af7f
   languageName: node
   linkType: hard
 
-"typescript@npm:~5.5.4":
-  version: 5.5.4
-  resolution: "typescript@npm:5.5.4"
+"typescript@patch:typescript@npm%3A^6.0.2#optional!builtin<compat/typescript>":
+  version: 6.0.2
+  resolution: "typescript@patch:typescript@npm%3A6.0.2#optional!builtin<compat/typescript>::version=6.0.2&hash=5786d5"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/422be60f89e661eab29ac488c974b6cc0a660fb2228003b297c3d10c32c90f3bcffc1009b43876a082515a3c376b1eefcce823d6e78982e6878408b9a923199c
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^5.3.0#optional!builtin<compat/typescript>":
-  version: 5.9.3
-  resolution: "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/ad09fdf7a756814dce65bc60c1657b40d44451346858eea230e10f2e95a289d9183b6e32e5c11e95acc0ccc214b4f36289dcad4bf1886b0adb84d711d336a430
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A~5.5.4#optional!builtin<compat/typescript>":
-  version: 5.5.4
-  resolution: "typescript@patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 10c0/73409d7b9196a5a1217b3aaad929bf76294d3ce7d6e9766dd880ece296ee91cf7d7db6b16c6c6c630ee5096eccde726c0ef17c7dfa52b01a243e57ae1f09ef07
+  checksum: 10c0/49f0b84fc6ca55653e77752b8a61beabc09ee3dae5d965c31596225aa6ef213c5727b1d2e895b900416dc603854ba0872ac4a812c2a4ed6793a601f9c675de02
   languageName: node
   linkType: hard
 
@@ -21740,6 +21764,9 @@ __metadata:
 "yarn-pnp-monorepo-example@workspace:.":
   version: 0.0.0-use.local
   resolution: "yarn-pnp-monorepo-example@workspace:."
+  dependencies:
+    "@andrewbranch/ts5to6": "npm:^1.1.1"
+    typescript: "npm:^6.0.2"
   languageName: unknown
   linkType: soft
 

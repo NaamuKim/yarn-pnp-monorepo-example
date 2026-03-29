@@ -1,3 +1,20 @@
+// Hole 1: const enum – erasableSyntaxOnly에서 크로스 파일 인라이닝 불가
+export const enum HttpStatus {
+  OK = 200,
+  NotFound = 404,
+  InternalServerError = 500,
+}
+
+// Hole 2: namespace – 일반 namespace는 erasableSyntaxOnly에서 금지
+export namespace Validators {
+  export function isEmail(value: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+  export function isPositive(value: number): boolean {
+    return value > 0;
+  }
+}
+
 export const formatDate = (date: Date): string => {
   return new Intl.DateTimeFormat('ko-KR', {
     year: 'numeric',

@@ -28,5 +28,9 @@
     "lint": "yarn workspaces foreach --all run lint",
     "typecheck": "yarn workspaces foreach --all run typecheck",
     "clean": "yarn workspaces foreach --all run clean"
+  },
+  "devDependencies": {
+    "@andrewbranch/ts5to6": "^1.1.1",
+    "typescript": "^6.0.2"
   }
 }
