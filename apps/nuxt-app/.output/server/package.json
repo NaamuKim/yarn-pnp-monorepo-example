@@ -1,0 +1,14 @@
+{
+  "name": "@mono/nuxt-app-prod",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@vue/shared": "3.5.31",
+    "devalue": "5.6.4",
+    "perfect-debounce": "2.1.0",
+    "unhead": "2.1.12",
+    "vue": "3.5.31",
+    "vue-bundle-renderer": "2.2.0"
+  }
+}

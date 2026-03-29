@@ -1,0 +1,15 @@
+{
+  "date": "2026-03-29T04:37:58.280Z",
+  "preset": "node-server",
+  "framework": {
+    "name": "nuxt",
+    "version": "3.21.2"
+  },
+  "versions": {
+    "nitro": "2.13.2"
+  },
+  "commands": {
+    "preview": "node server/index.mjs"
+  },
+  "config": {}
+}

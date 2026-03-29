@@ -23,6 +23,7 @@ jobs:
           - remix-app
           - astro-app
           - qwik-app
+          - ts6-holes-app
 
     steps:
       - uses: actions/checkout@v4

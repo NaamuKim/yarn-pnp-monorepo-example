@@ -4090,6 +4090,20 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@mono/ts6-holes-app@workspace:apps/ts6-holes-app":
+  version: 0.0.0-use.local
+  resolution: "@mono/ts6-holes-app@workspace:apps/ts6-holes-app"
+  dependencies:
+    "@types/react": "npm:^18.3.0"
+    "@types/react-dom": "npm:^18.3.0"
+    "@vitejs/plugin-react": "npm:^4.3.0"
+    react: "npm:^18.3.0"
+    react-dom: "npm:^18.3.0"
+    typescript: "npm:^6.0.2"
+    vite: "npm:^5.4.0"
+  languageName: unknown
+  linkType: soft
+
 "@mono/ui@workspace:*, @mono/ui@workspace:packages/ui":
   version: 0.0.0-use.local
   resolution: "@mono/ui@workspace:packages/ui"

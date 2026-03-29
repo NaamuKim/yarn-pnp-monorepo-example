@@ -1,0 +1,50 @@
+{
+  // This tsconfig intentionally contains TS5-valid options that break in TS6.
+  // Each option is annotated with the TypeScript PR that made it a breaking change.
+  //
+  // To suppress the deprecation errors temporarily while you migrate, add:
+  //   "ignoreDeprecations": "6.0"
+  // But this is only a stopgap — the options will be REMOVED in TS 7.0.
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+
+    // BC #1 – microsoft/TypeScript PR #62338 (TS 6.0)
+    // "node" removed. TS6 error TS5107 (deprecation) → TS7: full removal.
+    // Codemod: detect "node" → rewrite to "bundler" (Vite/webpack) or "nodenext" (Node.js).
+    "moduleResolution": "node",
+
+    "jsx": "react-jsx",
+
+    // BC #2 – microsoft/TypeScript PR #62567 (TS 6.0)
+    // esModuleInterop:false is now an error TS5107. Always true in TS6.
+    // Codemod: detect false → remove the line.
+    "esModuleInterop": false,
+
+    // BC #3 – same PR #62567
+    // allowSyntheticDefaultImports:false is now an error TS5107. Always true.
+    // Codemod: detect false → remove the line.
+    "allowSyntheticDefaultImports": false,
+
+    // BC #4 – microsoft/TypeScript PR #63089 area (TS 6.0)
+    // strict now defaults to true. Projects without explicit "strict": false
+    // will suddenly see TS7006/TS2531/TS2532 errors across their codebase.
+    // Codemod: if "strict" is absent, add "strict": false as a safe migration step.
+    "strict": false,
+
+    // BC #5 – microsoft/TypeScript PR #58941 (introduced TS 5.6, default-on TS 6.0)
+    // noUncheckedSideEffectImports defaults to true → side-effect CSS/asset imports → TS2882.
+    // Explicitly false here so the app builds; remove this line in TS5 to reproduce the error.
+    // Codemod: scan src/ for bare side-effect imports → add vite-env.d.ts OR set false.
+    "noUncheckedSideEffectImports": false,
+
+    // BC #6 – microsoft/TypeScript PR #63054 (TS 6.0)
+    // "types" now defaults to [] instead of all installed @types/*.
+    // Intentionally omitted to show TS2591/TS2304 in holes/05-types-default-empty.ts.
+    // Codemod: read devDeps for @types/* → populate "types": [...].
+
+    "noEmit": true
+  },
+  "include": ["src"]
+}

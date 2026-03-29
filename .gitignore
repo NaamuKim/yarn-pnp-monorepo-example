@@ -12,3 +12,7 @@ build/
 .nuxt/
 .svelte-kit/
 .qwik/
+
+# TS build artifacts
+apps/nextjs-app/next-env.d.ts
+apps/nextjs-app/tsconfig.tsbuildinfo
